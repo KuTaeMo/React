@@ -6,6 +6,7 @@ import Home from '../components/home/Home';
 const HomePage = () => {
   // http 요청 (fetch, axios(다운))
   const [boards, setBoards] = useState([]);
+  const [user, setUser] = useState({});
   const [numbers, setNumbers] = useState(0);
 
   // 빈 배열 한번만 실행
@@ -19,18 +20,18 @@ const HomePage = () => {
 
     // 빈데이터
     setBoards([...data]);
+    setUser({ id: 1, username: 'ssar' });
   }, []);
 
   return (
     <div>
-      <Header />
       <Home
         boards={boards}
         setBoards={setBoards}
         numbers={numbers}
         setNumbers={setNumbers}
+        user={user}
       />
-      <Footer />
     </div>
   );
 };
